@@ -27,18 +27,19 @@ const handler = NextAuth({
                     user.password
                 );
 
-                console.log({ passwordCorrect });
-
                 if(passwordCorrect){
                     return{
                         id: user.id,
                         email: user.email,
+                        username: user.username,
                     };
                 }
                 return null;
             },
         }),
     ],
+    
+    
 })
 
 export {handler as GET, handler as POST};

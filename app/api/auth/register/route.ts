@@ -4,16 +4,21 @@ import { sql } from '@vercel/postgres';
 
 export async function POST(request: Request){
     try {
-        const {email, password} = await request.json();
+        const {username, email, password, password2} = await request.json();
         //Validation
-        console.log({ email, password});
+        if(password == password2){
+            const hasedPassword = await hash(password, 10);
+            const response = await sql`
+                INSERT INTO users (username, email, password)
+                VALUES (${username}, ${email}, ${hasedPassword})
+            `;
 
-        const hasedPassword = await hash(password, 10);
+        }else{
+            
+        }
+        console.log({ username, email, password, password2});
 
-        const response = await sql`
-            INSERT INTO users (email, password)
-            VALUES (${email}, ${hasedPassword})
-        `;
+
         
 
     }catch(e) {
