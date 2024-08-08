@@ -10,7 +10,14 @@ const Home: React.FC = () => {
     <div style={{ textAlign: 'center' }}>
       <h1>LiveStream</h1>
       <ReactPlayer
-        url="https://snackboxuf.se/hls/mystream.m3u8"
+        url="https://snackboxuf.se/hls/laptop.m3u8"
+        controls
+        playing
+        width="50%"
+        height="auto"
+      />
+      <ReactPlayer
+        url="https://snackboxuf.se/hls/dator.m3u8"
         controls
         playing
         width="50%"
