@@ -1,13 +1,16 @@
-'use client';
+import Navbar from './components/Navbar';
+import './globals.css';
 
-import { signOut } from "next-auth/react";
-
-export default function Logout(){
-    return(
-        <span onClick={() => {
-            signOut();
-        }}>
-            Logout
-        </span>
-    )
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+    return (
+        <html lang="en">
+            <head>
+                <title>StreamSite</title>
+            </head>
+            <body>
+                <Navbar />
+                {children}
+            </body>
+        </html>
+    );
 }

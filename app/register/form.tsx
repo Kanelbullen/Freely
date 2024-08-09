@@ -1,9 +1,10 @@
 'use client';
 
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
-import styles from '../styles/Form.module.css';
 
 export default function Form(){
+    const router = useRouter();
     const handleSumbit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -17,6 +18,7 @@ export default function Form(){
             }),
         });
         console.log({ response });
+        
     };
     const [passwordVisible, setPasswordVisible] = useState(false);
     
