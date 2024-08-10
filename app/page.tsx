@@ -20,7 +20,7 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/1">
                                 <ReactPlayer
-                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                     controls
                                     playing
                                     width="100%"
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/2">
                             <ReactPlayer
-                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                     controls
                                     playing
                                     width="100%"
@@ -48,7 +48,7 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/3">
                                 <ReactPlayer
-                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                     controls
                                     playing
                                     width="100%"
@@ -69,7 +69,7 @@ const Home: React.FC = () => {
                             <Link href="/category/gaming">
                                 <div className="block text-center">
                                     <ReactPlayer
-                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                         controls
                                         playing
                                         width="100%"
@@ -84,7 +84,7 @@ const Home: React.FC = () => {
                             <Link href="/category/music">
                                 <div className="block text-center">
                                     <ReactPlayer
-                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                         controls
                                         playing
                                         width="100%"
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
                             <Link href="/category/sports">
                                 <div className="block text-center">
                                     <ReactPlayer
-                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                         controls
                                         playing
                                         width="100%"
@@ -114,7 +114,7 @@ const Home: React.FC = () => {
                             <Link href="/category/education">
                                 <div className="block text-center">
                                     <ReactPlayer
-                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        url="https://livestream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                         controls
                                         playing
                                         width="100%"
