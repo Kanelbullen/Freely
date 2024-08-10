@@ -20,7 +20,7 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/1">
                                 <ReactPlayer
-                                    url="https://snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
                                     controls
                                     playing
                                     width="100%"
@@ -33,14 +33,28 @@ const Home: React.FC = () => {
                         </div>
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/2">
-                                <img src="https://via.placeholder.com/400x300" alt="Stream 2" className="w-full h-48 object-cover rounded-lg" />
+                            <ReactPlayer
+                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    controls
+                                    playing
+                                    width="100%"
+                                    height="50%"
+                                    rounded="45px"
+                                />
                                 <h3 className="mt-2 text-xl text-white">Stream 2</h3>
                                 <p className="text-gray-400">Streamer 2</p>
                             </Link>
                         </div>
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/stream/3">
-                                <img src="https://via.placeholder.com/400x300" alt="Stream 3" className="w-full h-48 object-cover rounded-lg" />
+                                <ReactPlayer
+                                    url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                    controls
+                                    playing
+                                    width="100%"
+                                    height="50%"
+                                    rounded="45px"
+                                />
                                 <h3 className="mt-2 text-xl text-white">Stream 3</h3>
                                 <p className="text-gray-400">Streamer 3</p>
                             </Link>
@@ -54,7 +68,14 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/category/gaming">
                                 <div className="block text-center">
-                                    <img src="https://via.placeholder.com/400x300" alt="Gaming" className="w-full h-32 object-cover rounded-lg" />
+                                    <ReactPlayer
+                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        controls
+                                        playing
+                                        width="100%"
+                                        height="50%"
+                                        rounded="45px"
+                                    />
                                     <h3 className="mt-2 text-xl text-white">Gaming</h3>
                                 </div>
                             </Link>
@@ -62,7 +83,14 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/category/music">
                                 <div className="block text-center">
-                                    <img src="https://via.placeholder.com/400x300" alt="Music" className="w-full h-32 object-cover rounded-lg" />
+                                    <ReactPlayer
+                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        controls
+                                        playing
+                                        width="100%"
+                                        height="50%"
+                                        rounded="45px"
+                                    />
                                     <h3 className="mt-2 text-xl text-white">Music</h3>
                                 </div>
                             </Link>
@@ -70,7 +98,14 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/category/sports">
                                 <div className="block text-center">
-                                    <img src="https://via.placeholder.com/400x300" alt="Sports" className="w-full h-32 object-cover rounded-lg" />
+                                    <ReactPlayer
+                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        controls
+                                        playing
+                                        width="100%"
+                                        height="50%"
+                                        rounded="45px"
+                                    />
                                     <h3 className="mt-2 text-xl text-white">Sports</h3>
                                 </div>
                             </Link>
@@ -78,7 +113,14 @@ const Home: React.FC = () => {
                         <div className="bg-gray-800 p-4 rounded-lg">
                             <Link href="/category/education">
                                 <div className="block text-center">
-                                    <img src="https://via.placeholder.com/400x300" alt="Education" className="w-full h-32 object-cover rounded-lg" />
+                                    <ReactPlayer
+                                        url="https://stream.snackboxuf.se/hls/8f7964c320c934ec15c7395630669e9e.m3u8"
+                                        controls
+                                        playing
+                                        width="100%"
+                                        height="50%"
+                                        rounded="45px"
+                                    />
                                     <h3 className="mt-2 text-xl text-white">Education</h3>
                                 </div>
                             </Link>
