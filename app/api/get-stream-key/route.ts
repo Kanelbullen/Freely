@@ -1,25 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 
-export async function GET(req: NextRequest) {
-  try {
-    const { searchParams } = new URL(req.url);
+export async function GET(request: Request) {
+    const { searchParams } = new URL(request.url);
     const username = searchParams.get('username');
 
     if (!username) {
-      return NextResponse.json({ message: 'Invalid username parameter' }, { status: 400 });
+        return NextResponse.json({ error: 'Username is required' }, { status: 400 });
     }
 
-    const { rows } = await sql`SELECT streamkey FROM users WHERE username = ${username}`;
-    const streamKey = rows[0]?.streamkey;
+    try {
+        const result = await sql`SELECT streamkey FROM users WHERE username = ${username}`;
+        if (result.rowCount === 0) {
+            return NextResponse.json({ error: 'Stream key not found' }, { status: 404 });
+        }
 
-    if (streamKey) {
-      return NextResponse.json({ streamKey }, { status: 200 });
-    } else {
-      return NextResponse.json({ message: 'Stream key not found' }, { status: 404 });
+        const streamKey = result.rows[0].streamkey;
+        return NextResponse.json({ streamKey });
+    } catch (error) {
+        console.error('Error fetching stream key:', error);
+        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
-  } catch (error) {
-    console.error('Error fetching stream key:', error);
-    return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
-  }
 }
