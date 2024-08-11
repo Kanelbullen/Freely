@@ -29,22 +29,24 @@
 // };
 
 // export default Profile;
-
-import { getServerSession } from "next-auth";
-import { sql } from "@vercel/postgres";
-import { authOptions } from "../lib/authOptions"; // Adjust the path as necessary
-import { redirect } from "next/navigation";
-import ProfileClient from "./ProfileClient";
+import { getServerSession } from 'next-auth';
+import { sql } from '@vercel/postgres';
+import { redirect } from 'next/navigation';
+import ProfileClient from './ProfileClient';
 
 export default async function ProfilePage() {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession();
 
-    if (!session?.user?.id) {
+    if (!session) {
         redirect('/login');
-        return null;
     }
 
-    const user = await sql`SELECT * FROM users WHERE id = ${session.user.id}`;
+    const user = await sql`
+        SELECT username, email, streamkey
+        FROM users
+        WHERE email = ${session.user?.email}
+    `;
+
     const userData = user.rows[0];
 
     return (
