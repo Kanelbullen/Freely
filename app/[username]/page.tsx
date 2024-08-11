@@ -15,22 +15,23 @@ const StreamPage: React.FC<StreamPageProps> = ({ params: { username } }) => {
   const [viewerCount, setViewerCount] = useState(0);
   const [streamKey, setStreamKey] = useState<string | null>(null);
 
-  useEffect(() => {
-    async function fetchStreamKey() {
-      try {
-        const response = await fetch(`/api/get-stream-key?username=${username}`);
-        if (response.ok) {
-          const data = await response.json();
-          setStreamKey(data.streamKey);
-        } else {
-          console.error('Failed to fetch stream key');
-        }
-      } catch (error) {
-        console.error('Error fetching stream key:', error);
-      }
-    }
+    useEffect(() => {
+        const fetchStreamKey = async () => {
+            try {
+                const response = await fetch(`/api/get-stream-key?username=${username}`);
+                const data = await response.json();
 
-    fetchStreamKey();
+                if (response.ok) {
+                    setStreamKey(data.streamKey);
+                } else {
+                    console.error('Error fetching stream key:', data.error);
+                }
+            } catch (error) {
+                console.error('Error fetching stream key:', error);
+            }
+        };
+
+            fetchStreamKey();
 
     const socket = new WebSocket(`wss://livestream.netbase.se/viewers?username=${username}`);
 
