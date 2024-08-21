@@ -1,0 +1,59 @@
+.streamPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    background-color: #18181b;
+    min-height: 100vh;
+  }
+  
+  .streamPlayerContainer {
+    width: 100%;
+    max-width: 1280px;
+    aspect-ratio: 16/9;
+    background-color: #000;
+    position: relative;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .streamPlayer {
+    border-radius: 10px;
+  }
+  
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.5rem;
+    color: #ccc;
+  }
+  
+  .streamInfoContainer {
+    width: 100%;
+    max-width: 1280px;
+    padding: 1rem;
+    background-color: #1f1f23;
+    border-radius: 10px;
+  }
+  
+  .streamTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .viewerCount {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #8e9297;
+  }
+  
+  .streamDescription {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
