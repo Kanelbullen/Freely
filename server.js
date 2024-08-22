@@ -18,6 +18,9 @@
 //         return;
 //     }
 
+//     // Attach the username to the WebSocket client
+//     ws.username = username;
+
 //     // Increment viewer count
 //     if (!viewerCounts[username]) {
 //         viewerCounts[username] = 0;
@@ -45,9 +48,7 @@
 // function broadcastViewerCount(username) {
 //     const message = JSON.stringify({ viewerCount: viewerCounts[username] });
 //     wss.clients.forEach((client) => {
-//         const params = new URLSearchParams(client.url.replace('/?', ''));
-//         const clientUsername = params.get('username');
-//         if (client.readyState === WebSocket.OPEN && clientUsername === username) {
+//         if (client.readyState === WebSocket.OPEN && client.username === username) {
 //             client.send(message);
 //         }
 //     });
@@ -73,27 +74,31 @@ const wss = new WebSocket.Server({ server });
 let viewerCounts = {}; // To track viewers per username
 
 wss.on('connection', (ws, req) => {
+    console.log('New WebSocket connection');
+    
     const params = new URLSearchParams(req.url.replace('/?', ''));
     const username = params.get('username');
-
+    
     if (!username) {
+        console.log('No username provided, closing connection');
         ws.close(1008, 'Username not provided');
         return;
     }
-
-    // Attach the username to the WebSocket client
-    ws.username = username;
 
     // Increment viewer count
     if (!viewerCounts[username]) {
         viewerCounts[username] = 0;
     }
     viewerCounts[username]++;
+    
+    console.log(`User ${username} connected, current viewers: ${viewerCounts[username]}`);
 
     // Broadcast the updated viewer count to all connected clients for this username
     broadcastViewerCount(username);
 
     ws.on('close', () => {
+        console.log(`User ${username} disconnected`);
+        
         // Decrement viewer count
         viewerCounts[username]--;
         if (viewerCounts[username] < 0) viewerCounts[username] = 0;
@@ -111,7 +116,9 @@ wss.on('connection', (ws, req) => {
 function broadcastViewerCount(username) {
     const message = JSON.stringify({ viewerCount: viewerCounts[username] });
     wss.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN && client.username === username) {
+        const params = new URLSearchParams(client.url.replace('/?', ''));
+        const clientUsername = params.get('username');
+        if (client.readyState === WebSocket.OPEN && clientUsername === username) {
             client.send(message);
         }
     });
@@ -122,5 +129,3 @@ const PORT = 8080;
 server.listen(PORT, () => {
     console.log(`WebSocket server running on ws://localhost:${PORT}`);
 });
-
-module.exports = server;

@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
         <nav className="bg-gray-800 p-4 fixed w-full z-10 top-0 shadow-lg">
             <div className="container mx-auto flex items-center justify-between">
                 <div className="text-white text-2xl font-bold">
-                    <Link href="/">LiveBox</Link>
+                    <Link href="/">Freely</Link>
                 </div>
                 <div className="hidden md:flex items-center space-x-6">
                     <Link href="/" className="text-gray-300 hover:text-white">Home</Link>

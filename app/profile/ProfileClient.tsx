@@ -10,7 +10,7 @@ interface ProfileClientProps {
 }
 
 const ProfileClient: React.FC<ProfileClientProps> = ({ username, email, streamKey }) => {
-    const streamUrl = `https://livestream.netbase.se/hls/${streamKey}.m3u8`;
+    const streamUrl = `https://livestream.freely-streaming.com/hls/${streamKey}.m3u8`;
 
     return (
         <div className="flex flex-col justify-center items-center mx-auto w-full p-6 bg-gray-800 text-white min-h-screen pt-20">
@@ -38,7 +38,7 @@ const ProfileClient: React.FC<ProfileClientProps> = ({ username, email, streamKe
                             Use the following details to connect to your streaming service:
                         </p>
                         <div className="mb-4">
-                            <strong>Stream URL:</strong> <span className="ml-2">rtmp://livestream.netbase.se/live</span>
+                            <strong>Stream URL:</strong> <span className="ml-2">rtmp://livestream.freely-streaming.com/live</span>
                         </div>
                         <div className="mb-4">
                             <strong>Stream Key:</strong> <span className="ml-2">{streamKey}</span>
