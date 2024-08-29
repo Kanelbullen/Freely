@@ -16,7 +16,8 @@
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
-    "react-player": "^2.16.0"
+    "react-player": "^2.16.0",
+    "vercel": "^37.1.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

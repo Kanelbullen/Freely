@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       SELECT * FROM users WHERE email = ${email} OR username = ${username}
     `;
 
-    const user = existingUser.rows[0] as { username: string; email: string; }; // Add the actual properties you expect
+    const user = existingUser.rows[0] as { username: string; email: string; }; // Adjusted type
 
     if (user) {
       return NextResponse.json({ message: `User with this ${user.email === email ? 'email' : 'username'} already exists.`, field: user.email === email ? 'email' : 'username' }, { status: 400 });
@@ -26,14 +26,17 @@ export async function POST(request: Request) {
     const hashedPassword = await hash(password, 10);
     const streamKey = randomBytes(16).toString('hex'); // Generate a 32-character stream key
 
+    // Format the userat with an @ sign and convert username to lowercase
+    const userat = `@${username.toLowerCase()}`;
+
     // Insert the new user into the database
     await sql`
-      INSERT INTO users (username, email, password, streamkey)
-      VALUES (${username}, ${email}, ${hashedPassword}, ${streamKey})
+      INSERT INTO users (username, email, password, streamkey, userat)
+      VALUES (${username}, ${email}, ${hashedPassword}, ${streamKey}, ${userat})
     `;
 
-    console.log({ username, email, password, password2, streamKey });
-    return NextResponse.redirect(new URL('/profile', request.url));
+    // Instead of redirecting, return a JSON response
+    return NextResponse.json({ message: 'Registration successful', redirectUrl: '/profile' });
   } catch (e) {
     console.error('Error saving user to database:', e);
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });

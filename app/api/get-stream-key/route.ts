@@ -3,14 +3,14 @@ import { sql } from '@vercel/postgres';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const username = searchParams.get('username');
+  const userat = searchParams.get('username');
 
-  if (!username) {
+  if (!userat) {
     return NextResponse.json({ error: 'Username is required' }, { status: 400 });
   }
 
   try {
-    const { rows } = await sql`SELECT streamkey FROM users WHERE username = ${username}`;
+    const { rows } = await sql`SELECT streamkey FROM users WHERE userat = ${userat}`;
     const streamKey = rows[0]?.streamkey;
 
     if (!streamKey) {
