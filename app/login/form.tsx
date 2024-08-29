@@ -27,8 +27,8 @@ export default function Form() {
             <input
                 name="email"
                 className="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring focus:border-blue-500"
-                type="email"
-                placeholder="Email"
+                type="text"
+                placeholder="Username Or Email"
                 required
             />
             <input
